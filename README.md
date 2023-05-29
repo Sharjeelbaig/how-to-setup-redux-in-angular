@@ -85,22 +85,28 @@ ng generate component name-something
 ```
 
 ## step 9
-in name-something.component.ts:
+in name-something.component.ts or the component you want to use redux in (the following code is assuming that you have generated the component of the same name as module):
 ```ts
-import { Store } from '@ngrx/store';
-```
-```ts
-import { someFunction, anotherFunction } from '../state/name-something.actions';
-```
-```ts
-import { NameSomethingState } from '../state/name-something.state';
-```
-```ts
+import { Component } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { NameSomethingState } from './state/name-something.state';
+import { someFunction, anotherFunction } from './state/name-something.actions';
+
+@Component({
+  selector: 'app-counter',
+  templateUrl: './name-something.component.html',
+  styleUrls: ['./name-something.component.css']
+})
 export class NameSomethingComponent {
-  variable$: Observable<any>;
+  variable$: Observable<number>;
 
   constructor(private store: Store<NameSomethingState>) {
-    this.variable$ = this.store.select((state) => state.name-something.variable);
+    this.variable$ = new Observable<number>(observer => {
+      this.store.pipe(select(state => state.name-something)).subscribe(variable => {
+        observer.next(variable);
+      });
+    });
   }
 
   someFunction() {

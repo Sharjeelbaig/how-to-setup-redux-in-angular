@@ -36,10 +36,10 @@ import { createReducer, on } from '@ngrx/store';
 import { someFunction, anotherFunction } from './name-something.actions';
 
 export interface NameSomethingState {
-  variable;: any;
+  variable: any;
 }
 
-export const initialState: NameSomething = {
+export const initialState: NameSomethingState = {
   variable: 'any value',
 };
 

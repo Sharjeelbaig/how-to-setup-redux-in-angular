@@ -74,8 +74,10 @@ import { nameSometingReducer } from './state/name-something.reducer';
 ```
 
 ## step 7
-import StoreModule.forFeature('name-something', name-somethingReducer) in the ng module located in `name-something/name-someting.module.ts`.
-
+in `name-something/name-someting.module.ts`
+```ts
+import StoreModule.forFeature('name-something', name-somethingReducer) in the ng module located .
+```
 ## step 8
 
 ```bash

@@ -113,7 +113,7 @@ export class NameSomethingComponent {
 }
 ```
 
-## step 7
+## step 10
 use the html code like this:
 
 ```html

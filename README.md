@@ -97,7 +97,7 @@ import { NameSomethingState } from '../state/name-something.state';
 ```
 ```ts
 export class NameSomethingComponent {
-  variable$: Observable<number>;
+  variable$: Observable<any>;
 
   constructor(private store: Store<NameSomethingState>) {
     this.variable$ = this.store.select((state) => state.name-something.variable);
